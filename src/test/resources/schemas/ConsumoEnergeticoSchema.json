@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ConsumoEnergetico",
+  "description": "Contrato de resposta da API de monitoramento de consumo energetico (foco em fontes renovaveis).",
+  "type": "object",
+  "required": ["id", "idResidencia", "mesReferencia", "consumoKwh", "fonteEnergia"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "idResidencia": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mesReferencia": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$"
+    },
+    "consumoKwh": {
+      "type": "number",
+      "minimum": 0
+    },
+    "fonteEnergia": {
+      "type": "string",
+      "enum": ["SOLAR", "EOLICA", "HIDRELETRICA", "BIOMASSA", "REDE"]
+    }
+  },
+  "additionalProperties": false
+}
