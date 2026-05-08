@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Erro",
+  "description": "Contrato padronizado de respostas de erro (governanca: rastreabilidade e conformidade).",
+  "type": "object",
+  "required": ["timestamp", "status", "mensagem"],
+  "properties": {
+    "timestamp": {
+      "type": "string"
+    },
+    "status": {
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599
+    },
+    "erro": {
+      "type": "string"
+    },
+    "mensagem": {
+      "type": "string",
+      "minLength": 1
+    },
+    "caminho": {
+      "type": "string"
+    },
+    "campos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["campo", "mensagem"],
+        "properties": {
+          "campo": {"type": "string"},
+          "mensagem": {"type": "string"}
+        }
+      }
+    }
+  }
+}
