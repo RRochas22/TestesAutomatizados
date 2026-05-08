@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PontoColeta",
+  "description": "Contrato de resposta da API de pontos de coleta seletiva da Cidade Inteligente ESG.",
+  "type": "object",
+  "required": ["id", "nome", "tipoResiduo", "endereco", "latitude", "longitude"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "nome": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tipoResiduo": {
+      "type": "string",
+      "enum": ["PLASTICO", "PAPEL", "VIDRO", "ORGANICO", "ELETRONICO", "METAL"]
+    },
+    "endereco": {
+      "type": "string",
+      "minLength": 1
+    },
+    "latitude": {
+      "type": "number",
+      "minimum": -90,
+      "maximum": 90
+    },
+    "longitude": {
+      "type": "number",
+      "minimum": -180,
+      "maximum": 180
+    }
+  },
+  "additionalProperties": false
+}
